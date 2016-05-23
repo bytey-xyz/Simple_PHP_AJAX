@@ -51,7 +51,7 @@
     {
         var str = $('#inputPhone').val();
         var length=str.length-str.replace(/\d/gm,'').length;
-        if(length==10)
+        if(length==9)
         {
             $("#inputCode").show();
         }
