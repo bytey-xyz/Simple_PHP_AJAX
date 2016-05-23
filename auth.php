@@ -36,7 +36,7 @@
         <label for="inputPhone" class="sr-only">Email</label>
         <div class="input-group">
             <span class="input-group-addon">+7</span>
-            <input type="phone" id="inputPhone" class="form-control" placeholder="Телефон" onfocusout="showCode()" required autofocus>
+            <input type="phone" id="inputPhone" class="form-control" placeholder="Телефон" onkeydown="showCode()" required autofocus>
         </div>
         <label for="inputCode" class="sr-only">Код</label>
         <input type="text" id="inputCode" maxlength="5" class="form-control" placeholder="Код" required>
@@ -49,7 +49,9 @@
 <script>
     var showCode = function(el)
     {
-        if($('#inputPhone').val().length==14)
+        var str = $('#inputPhone').val();
+        var length=str.length-str.replace(/\d/gm,'').length;
+        if(length==10)
         {
             $("#inputCode").show();
         }
