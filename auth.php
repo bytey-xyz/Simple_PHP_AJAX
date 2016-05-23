@@ -36,7 +36,7 @@
         <label for="inputPhone" class="sr-only">Email</label>
         <div class="input-group">
             <span class="input-group-addon">+7</span>
-            <input type="phone" id="inputPhone" class="form-control" placeholder="Телефон" required autofocus>
+            <input type="phone" id="inputPhone" class="form-control" placeholder="Телефон" onfocusout="showCode()" required autofocus>
         </div>
         <label for="inputCode" class="sr-only">Код</label>
         <input type="text" id="inputCode" maxlength="5" class="form-control" placeholder="Код" required>
@@ -44,13 +44,25 @@
             Зарегистрироваться
         </a>
         <hr>
-        <button class="btn btn-lg btn-primary btn-block" id="makeLogin">Вход</button>
+        <button class="btn btn-lg btn-primary btn-block" id="makeLogin" disabled>Вход</button>
     </div>
 <script>
+    var showCode = function(el)
+    {
+        if($('#inputPhone').val().length==14)
+        {
+            $("#inputCode").show();
+        }
+        else
+        {
+            $('#inputCode').hide();
+        }
+    };
     $(document).ready(function(){
         var phoneS = $('#inputPhone');
         var phoneRS = $('#inputPhoneRegister');
         var codeS = $('#inputCode');
+        codeS.hide();
         phoneS.mask('(999) 999-9999');
         phoneRS.mask('(999) 999-9999');
         codeS.bind('keypress', function (event) {
@@ -60,7 +72,9 @@
                 event.preventDefault();
                 return false;
             }
+            $('#makeLogin').prop('disabled',!($('#inputCode').val().length==4));
         });
+
         var modal  = {
             title: $('#titleOne'),
             content: $("#bodyOne"),
