@@ -1,0 +1,11 @@
+.wrap {
+	width: 750px;
+	padding: 15px;
+	margin: 0 auto;
+
+	position:absolute;	/*Позиционируем абсолютно*/
+	top: 25px;	/*Отступ от верха открытки*/
+	left: 40px;	/*Отсуп от левого края открытки*/
+}
+.unset,textarea.unset,input.unset{border: 1px solid red;}
+
