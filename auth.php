@@ -51,7 +51,7 @@
     {
         var str = $('#inputPhone').val();
         var length=str.length-str.replace(/\d/gm,'').length;
-        if(length==9)
+        if(length>=9)
         {
             $("#inputCode").show();
         }
@@ -67,14 +67,17 @@
         codeS.hide();
         phoneS.mask('(999) 999-9999');
         phoneRS.mask('(999) 999-9999');
-        codeS.bind('keypress', function (event) {
+        codeS.bind('keypress',function (event) {
             var regex = new RegExp("^[a-zA-Z0-9]+$");
             var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-            if (!regex.test(key)) {
+	    if (!regex.test(key)) {
                 event.preventDefault();
                 return false;
             }
-            $('#makeLogin').prop('disabled',!($('#inputCode').val().length==4));
+	});
+	codeS.on('input',function(){            
+		console.log(1);
+		$('#makeLogin').prop('disabled',!($('#inputCode').val().length>=4));
         });
 
         var modal  = {

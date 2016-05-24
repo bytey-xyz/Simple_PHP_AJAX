@@ -10,7 +10,7 @@ if(isset($_REQUEST['login']))
     {
         exit(json_encode(['error'=>'wrong input data']));
     }
-    checkDDOS('auth',$medoo,10,5);
+    checkDDOS('auth',$medoo,10,1);
     
     $phone = clean($_REQUEST['phone']);
     $code = clean( $_REQUEST['code_post'] );
@@ -43,7 +43,7 @@ elseif(isset($_REQUEST['register']))
         exit(json_encode(['error'=>'wrong input data']));
     }
 
-    checkDDOS('reg',$medoo,1,5);
+    checkDDOS('reg',$medoo,10,1);
 
     $code = generate_pass(5);
 
