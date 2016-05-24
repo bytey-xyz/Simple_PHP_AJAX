@@ -989,10 +989,10 @@ class medoo
 $medoo = new medoo([
 	// required
 	'database_type' => 'mysql',
-	'database_name' => 'testing',
-	'server' => 'horatius.pro',
-	'username' => 'testing',
-	'password' => 'Testing5565',
+	'database_name' => '',
+	'server' => '',
+	'username' => '',
+	'password' => '',
 	'charset' => 'utf8',
 	'driver' => "MySQL",
 

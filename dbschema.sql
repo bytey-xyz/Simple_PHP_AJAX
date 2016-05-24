@@ -16,6 +16,7 @@ AUTO_INCREMENT=4
 CREATE TABLE `testing`.`ddos_protection` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`ip` VARCHAR(45) NULL,
+	/* MySQL 5.7+ for now() function here. If you have less version use defining in PHP */
 	`datetime` DATETIME NULL DEFAULT NOW(),
 	`method` VARCHAR(10) NULL,
 	PRIMARY KEY (`id`),
