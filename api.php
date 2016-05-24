@@ -16,7 +16,7 @@ if(isset($_REQUEST['login']))
     $code = clean( $_REQUEST['code_post'] );
 
 
-    $result = $medoo->get('userlist','*',['reg_tel'=>$phone]);
+    $result = $medoo->get('userlist','*',['reg_tel'=>"+7".$phone]);
     if(!$result)
     {
         exit(json_encode(
@@ -47,7 +47,7 @@ elseif(isset($_REQUEST['register']))
 
     $code = generate_pass(5);
 
-    $phone = clean($_REQUEST['phone']);
+    $phone = "+7".clean($_REQUEST['phone']);
 
     $salt = substr(sha1($code), 10, 15);
     $hash = sha1($salt . $code);
